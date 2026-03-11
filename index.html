@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XR Mews | The Scientist Cat's XR News</title>
+    <title>XR Mews | The Scientist Cat's Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #fbbf24;
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --accent: #FFD700;
+            --primary: #3b82f6;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
         body {
@@ -26,205 +28,220 @@
         }
 
         header {
-            padding: 2rem;
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #334155;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
-            font-family: 'Space+Grotesk', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
         }
 
-        .logo span { color: var(--accent); }
+        .logo span { color: var(--primary); }
 
         nav a {
             color: var(--text);
             text-decoration: none;
-            margin-left: 1.5rem;
-            font-weight: 500;
+            margin-left: 2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
-        nav a:hover { color: var(--accent); }
+        nav a:hover { color: var(--primary); }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 3rem 2rem;
         }
 
-        .featured-hero {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
-            border-radius: 1rem;
-            padding: 3rem;
-            margin-bottom: 3rem;
+        /* Pudgy-Style Hero */
+        .hero {
+            background: #e0f2fe;
+            border-radius: 2.5rem;
+            padding: 4rem;
+            margin-bottom: 4rem;
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             align-items: center;
+            border: 4px solid var(--text);
+            box-shadow: 12px 12px 0px var(--text);
         }
 
-        .featured-content { flex: 1; }
-        .featured-label {
-            color: var(--accent);
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-        }
-
-        h1 { font-family: 'Space+Grotesk', sans-serif; font-size: 2.5rem; margin: 0.5rem 0; }
-        .hero-meta { color: var(--text-muted); margin-bottom: 1.5rem; }
-
-        .play-button {
-            background: var(--accent);
-            color: #000;
-            padding: 0.75rem 1.5rem;
+        .hero-content { flex: 1; }
+        .hero-label {
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
             border-radius: 99px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin: 0; line-height: 1.1; }
+        .hero-p { font-size: 1.25rem; color: var(--text-muted); margin: 1.5rem 0 2rem 0; }
+
+        .btn-primary {
+            background: var(--text);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 1.5rem;
             font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-        }
-
-        .play-button:hover { opacity: 0.9; transform: translateY(-1px); }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .blog-card {
-            background: var(--card-bg);
-            border: 1px solid #334155;
-            border-radius: 0.75rem;
-            overflow: hidden;
+            gap: 0.75rem;
+            font-size: 1.1rem;
             transition: transform 0.2s;
         }
 
-        .blog-card:hover { transform: translateY(-4px); }
+        .btn-primary:hover { transform: scale(1.05); }
 
-        .card-image {
-            height: 180px;
-            background: #334155;
+        /* Grid */
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 2rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            border: 3px solid var(--text);
+            border-radius: 2rem;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 8px 8px 0px var(--text);
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0px var(--text); }
+
+        .card-img {
+            height: 200px;
+            background: #f1f5f9;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 4rem;
+            border-bottom: 3px solid var(--text);
         }
 
-        .card-body { padding: 1.5rem; }
-        .card-date { font-size: 0.8rem; color: var(--text-muted); }
-        .card-title { font-weight: 700; font-size: 1.25rem; margin: 0.5rem 0; }
-
-        .badge {
-            background: #334155;
-            color: var(--text);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-        }
-
-        .badge.podcast { background: #1d4ed8; color: #fff; }
+        .card-body { padding: 2rem; }
+        .card-tag { font-weight: 700; color: var(--primary); font-size: 0.8rem; text-transform: uppercase; }
+        .card-h { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 0.5rem 0; }
+        .card-p { color: var(--text-muted); font-size: 1rem; margin-bottom: 0; }
 
         footer {
-            text-align: center;
+            background: white;
             padding: 4rem 2rem;
-            color: var(--text-muted);
-            border-top: 1px solid #334155;
+            text-align: center;
+            border-top: 3px solid var(--text);
+            margin-top: 4rem;
+        }
+
+        .cat-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 4px solid var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; padding: 2rem; text-align: center; }
+            h1 { font-size: 2.5rem; }
+            .cat-avatar { order: -1; width: 120px; height: 120px; font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">🐾 XR <span>Mews</span></div>
+        <a href="/" class="logo">🐾 XR <span>Mews</span></a>
         <nav>
-            <a href="#">Latest</a>
-            <a href="#">Podcast</a>
-            <a href="#">Hardware</a>
-            <a href="#">About</a>
+            <a href="#">Listen</a>
+            <a href="#">Read</a>
+            <a href="#">The Team</a>
         </nav>
     </header>
 
     <div class="container">
         
-        <!-- Featured Episode (The "Reboot" Podcast) -->
-        <section class="featured-hero">
-            <div class="featured-content">
-                <div class="featured-label">Featured Episode</div>
-                <h1>The MicroLED Ramp-Up: Meta’s 2027 Play</h1>
-                <p class="hero-meta">Scientist Cat, AI Alpha, and AI Beta discuss the massive shift away from LCoS displays.</p>
-                <a href="#" class="play-button">▶ Listen to the Episode</a>
+        <!-- NEW PUDGY-STYLE HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-label">Latest Episode</div>
+                <h1>The MicroLED Meow-ment</h1>
+                <p class="hero-p">Mews & Pudgy break down why Meta is going beast-mode on MicroLED for 2027. AR you can actually use in the sun!</p>
+                <a href="https://open.spotify.com/episode/1lEmzNprNvabGAeWf6bhR3" class="btn-primary">▶ Play Episode</a>
             </div>
-            <div style="font-size: 8rem;">🐈‍⬛</div>
+            <div class="cat-avatar">🐈‍⬛</div>
         </section>
 
-        <!-- Blog Grid -->
-        <div class="section-header">
-            <h2>Latest Mews</h2>
-            <a href="#" style="color: var(--accent); text-decoration: none;">View All →</a>
-        </div>
+        <h2 class="section-title">Latest Updates</h2>
 
         <div class="grid">
-            <!-- New Post -->
-            <article class="blog-card">
-                <div class="card-image">👓</div>
+            <!-- Latest Post -->
+            <a href="#" class="card">
+                <div class="card-img" style="background: #fee2e2;">🛡️</div>
                 <div class="card-body">
-                    <span class="badge podcast">Podcast Inside</span>
-                    <div class="card-date">March 11, 2026</div>
-                    <div class="card-title">Meta's 2027 MicroLED Pivot: Why the Hype?</div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Breaking down epitaxy and the end of LCoS dominance...</p>
+                    <span class="card-tag">Hardware / Privacy</span>
+                    <h3 class="card-h">Google's $250M Android XR Gambit</h3>
+                    <p class="card-p">While Google buys up HTC talent, Meta faces its biggest privacy lawsuit yet. Here's why local-first AI is winning.</p>
                 </div>
-            </article>
+            </a>
 
-            <!-- From RSS 1 -->
-            <article class="blog-card">
-                <div class="card-image">👁️</div>
+            <!-- Archive Post 1 -->
+            <a href="#" class="card">
+                <div class="card-img" style="background: #f0f9ff;">👁️</div>
                 <div class="card-body">
-                    <span class="badge">Article</span>
-                    <div class="card-date">March 16, 2025</div>
-                    <div class="card-title">Google's Eye-Tracking Play & Valve's Big Move</div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">From Meta's Passthrough to Valve's wireless future...</p>
+                    <span class="card-tag">The Archive</span>
+                    <h3 class="card-h">Google's Eye-Tracking Play</h3>
+                    <p class="card-p">Looking back at the big leap into eye-tracking with AdHawk and what it meant for the industry.</p>
                 </div>
-            </article>
+            </a>
 
-            <!-- From RSS 2 -->
-            <article class="blog-card">
-                <div class="card-image">🧤</div>
+            <!-- Archive Post 2 -->
+            <a href="#" class="card">
+                <div class="card-img" style="background: #fef9c3;">🧤</div>
                 <div class="card-body">
-                    <span class="badge">Article</span>
-                    <div class="card-date">March 3, 2025</div>
-                    <div class="card-title">Haptic Magic: WEART Gloves & Free Quests</div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Knoxlabs' free demo program and the return of touch.</p>
+                    <span class="card-tag">Haptics</span>
+                    <h3 class="card-h">WEART TouchDIVER Vibes</h3>
+                    <p class="card-p">Experience real touch, texture, and temperature inside the virtual world.</p>
                 </div>
-            </article>
+            </a>
         </div>
 
     </div>
 
     <footer>
-        <p>🐾 Curated by The Scientist Cat. XR Mews &copy; 2026</p>
-        <p style="font-size: 0.8rem;">Powered by OpenClaw • Built with Sunshine ☀️🦦</p>
+        <p>🐾 Curated with love by Mews the Scientist Cat.</p>
+        <p style="font-size: 0.9rem; color: #94a3b8;">Built for the OpenClaw Ecosystem • 2026</p>
     </footer>
 
 </body>
 </html>
-<!-- Vercel Deployment Trigger: Wed Mar 11 07:16:54 UTC 2026 -->
