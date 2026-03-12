@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XR Mews | News for the New Reality</title>
+    <!-- Open Graph Tags for better sharing -->
+    <meta property="og:title" content="XR Mews - The Scientist Cat's Podcast">
+    <meta property="og:description" content="High-octane XR news and analysis from Mews & Pudgy.">
+    <meta property="og:image" content="https://xrmews.vercel.app/ep2_art.png">
+    <meta property="og:url" content="https://xrmews.vercel.app">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #f8fafc;
@@ -61,7 +66,7 @@
             transition: color 0.2s;
         }
 
-        nav nav a:hover { color: var(--primary); }
+        nav a:hover { color: var(--primary); }
 
         .container {
             max-width: 1100px;
@@ -69,7 +74,6 @@
             padding: 3rem 2rem;
         }
 
-        /* Pudgy-Style Hero */
         .hero {
             background: #ffe4e6;
             border-radius: 2.5rem;
@@ -130,8 +134,8 @@
 
         .btn-primary:hover, .btn-secondary:hover { transform: scale(1.05); }
 
-        /* Grid */
         .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 2rem; }
+        .whisker-title { font-family: 'Shadows Into Light', cursive; font-size: 2.5rem; color: #ef4444; }
 
         .grid {
             display: grid;
@@ -170,22 +174,31 @@
         .card-h { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 0.5rem 0; }
         .card-p { color: var(--text-muted); font-size: 1rem; margin-bottom: 0; }
 
-        /* Team Section */
+        /* Newsletter */
+        .newsletter {
+            background: var(--text);
+            color: white;
+            border-radius: 2.5rem;
+            padding: 4rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+        .newsletter h2 { font-family: 'Space Grotesk', sans-serif; color: white; margin-bottom: 1rem; }
+        .newsletter input {
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            border: none;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
         .team-section { margin-top: 6rem; text-align: center; }
         .team-grid { display: flex; justify-content: center; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; }
         .team-member { max-width: 250px; }
         .team-avatar { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--text); margin: 0 auto 1.5rem; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 4rem; overflow: hidden; }
-        .team-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .team-role { color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
-
-        footer {
-            background: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 3px solid var(--text);
-            margin-top: 6rem;
-        }
-
+        
         .cat-avatar {
             width: 200px;
             height: 200px;
@@ -200,12 +213,7 @@
         }
         .cat-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-        @media (max-width: 768px) {
-            .hero { flex-direction: column; padding: 2rem; text-align: center; }
-            h1 { font-size: 2.5rem; }
-            .cat-avatar { order: -1; width: 150px; height: 150px; font-size: 4rem; }
-            .btn-group { flex-direction: column; }
-        }
+        footer { background: white; padding: 4rem 2rem; text-align: center; border-top: 3px solid var(--text); margin-top: 6rem; }
     </style>
 </head>
 <body>
@@ -215,7 +223,7 @@
         <nav>
             <a href="https://creators.spotify.com/pod/profile/xrmews" target="_blank">Listen</a>
             <a href="#episodes">Read</a>
-            <a href="#episodes">Episodes</a>
+            <a href="#live-news">The Daily Whisker</a>
             <a href="#team">The Team</a>
         </nav>
     </header>
@@ -237,8 +245,17 @@
             </div>
         </section>
 
-        <h2 id="episodes" class="section-title">All Episodes</h2>
+        <section class="newsletter">
+            <h2 class="section-title">Get the Mews-Letter</h2>
+            <p>Fresh whiskers in your inbox. No spam, just pure XR energy.</p>
+            <form action="#">
+                <input type="email" placeholder="you@example.com" required>
+                <br>
+                <button type="submit" class="btn-primary" style="background: var(--primary);">Subscribe</button>
+            </form>
+        </section>
 
+        <h2 id="episodes" class="section-title">All Episodes</h2>
         <div class="grid">
             <a href="episode-002.html" class="card">
                 <div class="card-img" style="background: #fee2e2;">
@@ -246,8 +263,8 @@
                 </div>
                 <div class="card-body">
                     <span class="card-tag">Strategy / Meta</span>
-                    <h3 class="card-h">The Gravy Train Hits the Brakes</h3>
-                    <p class="card-p">Meta is shifting from "Funding Prestige Games" to "Customer Acquisition." Mews explains why this retreat might be tactical.</p>
+                    <h3 class="card-h">The Gravy Train</h3>
+                    <p class="card-p">Meta is shifting from "Funding Prestige Games" to "Customer Acquisition."</p>
                 </div>
             </a>
             <a href="episode-001.html" class="card">
@@ -256,67 +273,53 @@
                 </div>
                 <div class="card-body">
                     <span class="card-tag">Hardware / 2027</span>
-                    <h3 class="card-h">The MicroLED Meow-ment</h3>
-                    <p class="card-p">Meta's pivot to MicroLED for their 2027 glasses is a massive hardware bet. Get the full scoop.</p>
+                    <h3 class="card-h">MicroLED Meow-ment</h3>
+                    <p class="card-p">Meta's pivot to MicroLED for their 2027 glasses is a massive hardware bet.</p>
                 </div>
             </a>
         </div>
 
-        <!-- LIVE NEWS SECTION -->
         <section id="live-news" style="margin-top: 6rem;">
-            <h2 class="section-title">Live XR News Feed</h2>
+            <h2 class="whisker-title">The Daily Whisker <span style="font-family:'Inter'; font-size: 1rem; vertical-align: middle; color: #64748b;">(live xr news feed)</span></h2>
             <div id="news-container" class="grid">
-                <!-- News items will be injected here -->
                 <!-- Start of news items -->
-            <div class="card">
-                <div class="card-body">
-                    <span class="card-tag">Industrial</span>
-                    <h3 class="card-h">John Deere Launches XR Training System</h3>
-                    <p class="card-p">At CONEXPO-CON/AGG 2026, John Deere debuted a portable VR/AR training suite using Quest 3 and Pico 4 Ultra for heavy machinery.</p>
-                    <a href="https://www.wirtgen-group.com/en-af/news/john-deere/extended-reality-training-system/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">Industrial</span>
+                        <h3 class="card-h">John Deere Launches XR Training</h3>
+                        <p class="card-p">At CONEXPO 2026, John Deere debuted a portable VR/AR training suite using Quest 3.</p>
+                        <a href="https://www.wirtgen-group.com/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                    </div>
                 </div>
-            </div>
-        
-            <div class="card">
-                <div class="card-body">
-                    <span class="card-tag">Education</span>
-                    <h3 class="card-h">EON Reality Taps Genie 3 AI for 3D Worlds</h3>
-                    <p class="card-p">EON Sentient has launched, leveraging Google DeepMind's Genie 3 to create photorealistic training environments for over 150 career paths.</p>
-                    <a href="https://vedx.io/blogs/xr-education-news-today/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">Gov</span>
+                        <h3 class="card-h">TechSummit 2026 Demos XR</h3>
+                        <p class="card-p">DC lawmakers get hands-on with AR headsets to debate new workforce legislation.</p>
+                        <a href="https://vedx.io" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                    </div>
                 </div>
-            </div>
-        
-            <div class="card">
-                <div class="card-body">
-                    <span class="card-tag">Tech</span>
-                    <h3 class="card-h">Global XR Market Forecast 2026-2036</h3>
-                    <p class="card-p">New reports highlight the growth of microLED, advanced optics, and neural SoCs as the primary drivers for the next decade of XR development.</p>
-                    <a href="https://www.futuremarketsinc.com/the-global-extended-reality-xr-market-2026-2036-virtual-reality-vr-augmented-reality-ar-and-mixed-reality-mr-technologies/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
-                </div>
-            </div>
-        <!-- End of news items -->
+                <!-- End of news items -->
             </div>
         </section>
 
         <section id="team" class="team-section">
             <h2 class="section-title">The Team</h2>
-            <p>The whiskers and flippers behind the news.</p>
             <div class="team-grid">
                 <div class="team-member">
                     <div class="team-avatar">🐱</div>
                     <div class="team-name">Mews</div>
                     <div class="team-role">Lead Scientist</div>
-                    <p class="card-p">Obsessed with MicroLEDs, field-of-view, and the perfect nap spot.</p>
+                    <p class="card-p">Obsessed with MicroLEDs and field-of-view.</p>
                 </div>
                 <div class="team-member">
                     <div class="team-avatar">🐧</div>
                     <div class="team-name">Pudgy</div>
                     <div class="team-role">Chief Hype Officer</div>
-                    <p class="card-p">Here for the big games, the high frames, and two orders of the house special.</p>
+                    <p class="card-p">Here for high frames and the house special.</p>
                 </div>
             </div>
         </section>
-
     </div>
 
     <footer>
