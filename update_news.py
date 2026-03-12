@@ -5,20 +5,20 @@ def update_live_news():
         {
             "title": "John Deere Launches XR Training System",
             "summary": "At CONEXPO-CON/AGG 2026, John Deere debuted a portable VR/AR training suite using Quest 3 and Pico 4 Ultra for heavy machinery.",
-            "url": "https://www.deere.com/en/news/",
+            "url": "https://www.wirtgen-group.com/en-af/news/john-deere/extended-reality-training-system/",
             "tag": "Industrial"
         },
         {
             "title": "EON Reality Taps Genie 3 AI for 3D Worlds",
             "summary": "EON Sentient has launched, leveraging Google DeepMind's Genie 3 to create photorealistic training environments for over 150 career paths.",
-            "url": "https://eonreality.com",
+            "url": "https://vedx.io/blogs/xr-education-news-today/",
             "tag": "Education"
         },
         {
-            "title": "China Targets 25 Million XR Units by Year End",
-            "summary": "The nation's five-year plan aims for massive market growth, backing 100 core companies to strengthen the global XR supply chain.",
-            "url": "https://www.scmp.com/tech",
-            "tag": "Global"
+            "title": "Global XR Market Forecast 2026-2036",
+            "summary": "New reports highlight the growth of microLED, advanced optics, and neural SoCs as the primary drivers for the next decade of XR development.",
+            "url": "https://www.futuremarketsinc.com/the-global-extended-reality-xr-market-2026-2036-virtual-reality-vr-augmented-reality-ar-and-mixed-reality-mr-technologies/",
+            "tag": "Tech"
         }
     ]
     
