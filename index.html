@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XR Mews | The Scientist Cat's Hub</title>
+    <title>XR Mews | News for the New Reality</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
             transition: color 0.2s;
         }
 
-        nav a:hover { color: var(--primary); }
+        nav nav a:hover { color: var(--primary); }
 
         .container {
             max-width: 1100px;
@@ -97,6 +97,8 @@
         h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin: 0; line-height: 1.1; }
         .hero-p { font-size: 1.25rem; color: var(--text-muted); margin: 1.5rem 0 2rem 0; }
 
+        .btn-group { display: flex; gap: 1rem; }
+
         .btn-primary {
             background: var(--text);
             color: white;
@@ -111,7 +113,22 @@
             transition: transform 0.2s;
         }
 
-        .btn-primary:hover { transform: scale(1.05); }
+        .btn-secondary {
+            background: white;
+            color: var(--text);
+            padding: 1rem 2rem;
+            border-radius: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            border: 3px solid var(--text);
+            transition: transform 0.2s;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover { transform: scale(1.05); }
 
         /* Grid */
         .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 2rem; }
@@ -137,44 +154,57 @@
         .card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0px var(--text); }
 
         .card-img {
-            height: 200px;
+            height: 250px;
             background: #f1f5f9;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            overflow: hidden;
             border-bottom: 3px solid var(--text);
         }
+
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
 
         .card-body { padding: 2rem; }
         .card-tag { font-weight: 700; color: var(--primary); font-size: 0.8rem; text-transform: uppercase; }
         .card-h { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 0.5rem 0; }
         .card-p { color: var(--text-muted); font-size: 1rem; margin-bottom: 0; }
 
+        /* Team Section */
+        .team-section { margin-top: 6rem; text-align: center; }
+        .team-grid { display: flex; justify-content: center; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; }
+        .team-member { max-width: 250px; }
+        .team-avatar { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--text); margin: 0 auto 1.5rem; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 4rem; overflow: hidden; }
+        .team-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .team-role { color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+
         footer {
             background: white;
             padding: 4rem 2rem;
             text-align: center;
             border-top: 3px solid var(--text);
-            margin-top: 4rem;
+            margin-top: 6rem;
         }
 
         .cat-avatar {
             width: 200px;
             height: 200px;
-            border-radius: 50%;
+            border-radius: 2rem;
             background: var(--accent);
             border: 4px solid var(--text);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 6rem;
+            overflow: hidden;
         }
+        .cat-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
         @media (max-width: 768px) {
             .hero { flex-direction: column; padding: 2rem; text-align: center; }
             h1 { font-size: 2.5rem; }
-            .cat-avatar { order: -1; width: 120px; height: 120px; font-size: 4rem; }
+            .cat-avatar { order: -1; width: 150px; height: 150px; font-size: 4rem; }
+            .btn-group { flex-direction: column; }
         }
     </style>
 </head>
@@ -183,30 +213,35 @@
     <header>
         <a href="/" class="logo">🐾 XR <span>Mews</span></a>
         <nav>
-            <a href="https://podcasters.spotify.com/pod/show/xrmews/episodes/Ep-002-The-Gravy-Train-Hits-the-Brakes-Metas-Massive-Pivot-e2rdv6v">Listen</a>
-            <a href="#">Read</a>
-            <a href="#">The Team</a>
+            <a href="#episodes">Episodes</a>
+            <a href="#team">The Team</a>
         </nav>
     </header>
 
     <div class="container">
         
-        <!-- EPISODE 2 HERO -->
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-label">NEW EPISODE</div>
+                <div class="hero-label">LATEST EPISODE</div>
                 <h1>The Gravy Train Hits the Brakes</h1>
-                <p class="hero-p">The era of unlimited VR funding is over. Meta CTO Andrew Bosworth drops a truth bomb about the future of the Quest ecosystem. Mews and Pudgy break down what it means for devs and fans.</p>
-                <a href="https://open.spotify.com/episode/3Gb86CrHlx1fcVEWNkfKrU?si=z7vbKMycQ5yw68Ue9GgvtQ" class="btn-primary">▶ Listen Now</a>
+                <p class="hero-p">Is the era of unlimited VR funding over? Meta CTO Andrew Bosworth drops a truth bomb on the industry. Mews and Pudgy break down the pivot to customer acquisition.</p>
+                <div class="btn-group">
+                    <a href="https://creators.spotify.com/pod/profile/xrmews" class="btn-primary">🎧 Listen Now</a>
+                    <a href="episode-002.html" class="btn-secondary">📖 Read Analysis</a>
+                </div>
             </div>
-            <div class="cat-avatar">🚞</div>
+            <div class="cat-avatar">
+                <img src="/ep2_art.png" alt="XR Mews Ep 2">
+            </div>
         </section>
 
-        <h2 class="section-title">Fresh Off the Press</h2>
+        <h2 id="episodes" class="section-title">All Episodes</h2>
 
         <div class="grid">
             <a href="episode-002.html" class="card">
-                <div class="card-img" style="background: #fee2e2;">🚂</div>
+                <div class="card-img" style="background: #fee2e2;">
+                    <img src="/ep2_art.png" alt="Ep 2">
+                </div>
                 <div class="card-body">
                     <span class="card-tag">Strategy / Meta</span>
                     <h3 class="card-h">The Gravy Train Hits the Brakes</h3>
@@ -214,34 +249,35 @@
                 </div>
             </a>
             <a href="episode-001.html" class="card">
-                <div class="card-img" style="background: #fbbf24;">✨</div>
+                <div class="card-img" style="background: #fbbf24;">
+                    <img src="/ep1_art_916.png" alt="Ep 1">
+                </div>
                 <div class="card-body">
                     <span class="card-tag">Hardware / 2027</span>
                     <h3 class="card-h">The MicroLED Meow-ment</h3>
                     <p class="card-p">Meta's pivot to MicroLED for their 2027 glasses is a massive hardware bet. Get the full scoop.</p>
                 </div>
             </a>
-
-            <!-- Archive Post 1 -->
-            <a href="#" class="card">
-                <div class="card-img" style="background: #f0f9ff;">👁️</div>
-                <div class="card-body">
-                    <span class="card-tag">The Archive</span>
-                    <h3 class="card-h">Google's Eye-Tracking Play</h3>
-                    <p class="card-p">Looking back at the big leap into eye-tracking with AdHawk and what it meant for the industry.</p>
-                </div>
-            </a>
-
-            <!-- Archive Post 2 -->
-            <a href="#" class="card">
-                <div class="card-img" style="background: #fef9c3;">🧤</div>
-                <div class="card-body">
-                    <span class="card-tag">Haptics</span>
-                    <h3 class="card-h">WEART TouchDIVER Vibes</h3>
-                    <p class="card-p">Experience real touch, texture, and temperature inside the virtual world.</p>
-                </div>
-            </a>
         </div>
+
+        <section id="team" class="team-section">
+            <h2 class="section-title">The Team</h2>
+            <p>The whiskers and flippers behind the news.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">🐱</div>
+                    <div class="team-name">Mews</div>
+                    <div class="team-role">Lead Scientist</div>
+                    <p class="card-p">Obsessed with MicroLEDs, field-of-view, and the perfect nap spot.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">🐧</div>
+                    <div class="team-name">Pudgy</div>
+                    <div class="team-role">Chief Hype Officer</div>
+                    <p class="card-p">Here for the big games, the high frames, and two orders of the house special.</p>
+                </div>
+            </div>
+        </section>
 
     </div>
 
