@@ -23,6 +23,8 @@
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
+        * { box-sizing: border-box; }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg);
@@ -30,10 +32,11 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         header {
-            padding: 1.5rem 2rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,52 +44,66 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .logo {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             color: var(--text);
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .logo span { color: var(--primary); }
 
+        nav { display: flex; align-items: center; }
+
         nav a {
             color: var(--text);
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 1.5rem;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: color 0.2s;
         }
 
         nav a:hover { color: var(--primary); }
 
+        /* Mobile Nav Toggle */
+        .nav-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem;
         }
 
         .hero {
             background: #ffe4e6;
-            border-radius: 2.5rem;
-            padding: 4rem;
-            margin-bottom: 4rem;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
             display: flex;
-            gap: 3rem;
+            flex-direction: column-reverse;
+            gap: 2rem;
             align-items: center;
             border: 4px solid var(--text);
-            box-shadow: 12px 12px 0px var(--text);
+            box-shadow: 8px 8px 0px var(--text);
         }
 
-        .hero-content { flex: 1; }
+        @media (min-width: 768px) {
+            .hero { flex-direction: row; padding: 4rem; box-shadow: 12px 12px 0px var(--text); }
+            .logo { font-size: 1.8rem; }
+        }
+
+        .hero-content { flex: 1; text-align: center; }
+        @media (min-width: 768px) { .hero-content { text-align: left; } }
+
         .hero-label {
             background: #ef4444;
             color: white;
@@ -95,70 +112,78 @@
             font-weight: 700;
             font-size: 0.75rem;
             display: inline-block;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin: 0; line-height: 1.1; }
-        .hero-p { font-size: 1.25rem; color: var(--text-muted); margin: 1.5rem 0 2rem 0; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin: 0; line-height: 1.1; }
+        @media (min-width: 768px) { h1 { font-size: 3.5rem; } }
 
-        .btn-group { display: flex; gap: 1rem; }
+        .hero-p { font-size: 1.1rem; color: var(--text-muted); margin: 1.5rem 0 2rem 0; }
+
+        .btn-group { display: flex; flex-direction: column; gap: 1rem; }
+        @media (min-width: 480px) { .btn-group { flex-direction: row; justify-content: center; } }
+        @media (min-width: 768px) { .btn-group { justify-content: flex-start; } }
 
         .btn-primary {
             background: var(--text);
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 1.25rem;
             font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.75rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: transform 0.2s;
         }
 
         .btn-secondary {
             background: white;
             color: var(--text);
-            padding: 1rem 2rem;
-            border-radius: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 1.25rem;
             font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.75rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             border: 3px solid var(--text);
             transition: transform 0.2s;
         }
 
         .btn-primary:hover, .btn-secondary:hover { transform: scale(1.05); }
 
-        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 2rem; }
-        .whisker-title { font-family: 'Shadows Into Light', cursive; font-size: 2.5rem; color: #ef4444; }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .whisker-title { font-family: 'Shadows Into Light', cursive; font-size: 2.2rem; color: #ef4444; margin-top: 4rem; }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .card {
             background: white;
             border: 3px solid var(--text);
-            border-radius: 2rem;
+            border-radius: 1.5rem;
             padding: 0;
             overflow: hidden;
-            box-shadow: 8px 8px 0px var(--text);
+            box-shadow: 6px 6px 0px var(--text);
             transition: transform 0.2s;
             text-decoration: none;
             color: inherit;
+            display: flex;
+            flex-direction: column;
         }
 
-        .card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0px var(--text); }
+        .card:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0px var(--text); }
 
         .card-img {
-            height: 250px;
+            height: 200px;
             background: #f1f5f9;
             display: flex;
             align-items: center;
@@ -169,21 +194,21 @@
 
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
 
-        .card-body { padding: 2rem; }
-        .card-tag { font-weight: 700; color: var(--primary); font-size: 0.8rem; text-transform: uppercase; }
-        .card-h { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 0.5rem 0; }
-        .card-p { color: var(--text-muted); font-size: 1rem; margin-bottom: 0; }
+        .card-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-tag { font-weight: 700; color: var(--primary); font-size: 0.75rem; text-transform: uppercase; }
+        .card-h { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; margin: 0.5rem 0; }
+        .card-p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; flex-grow: 1; }
 
         /* Newsletter */
         .newsletter {
             background: var(--text);
             color: white;
-            border-radius: 2.5rem;
-            padding: 4rem;
-            margin: 4rem 0;
+            border-radius: 2rem;
+            padding: 3rem 1.5rem;
+            margin: 3rem 0;
             text-align: center;
         }
-        .newsletter h2 { font-family: 'Space Grotesk', sans-serif; color: white; margin-bottom: 1rem; }
+        .newsletter h2 { font-family: 'Space Grotesk', sans-serif; color: white; margin-bottom: 1rem; font-size: 1.8rem; }
         .newsletter input {
             padding: 1rem 1.5rem;
             border-radius: 1rem;
@@ -194,37 +219,44 @@
             font-size: 1rem;
         }
 
-        .team-section { margin-top: 6rem; text-align: center; }
-        .team-grid { display: flex; justify-content: center; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; }
-        .team-member { max-width: 250px; }
-        .team-avatar { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--text); margin: 0 auto 1.5rem; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 4rem; overflow: hidden; }
+        .team-section { margin-top: 4rem; text-align: center; }
+        .team-grid { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+        .team-member { width: 100%; max-width: 250px; }
+        .team-avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--text); margin: 0 auto 1rem; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 3rem; overflow: hidden; }
         
         .cat-avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 2rem;
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 1/1;
+            border-radius: 1.5rem;
             background: var(--accent);
             border: 4px solid var(--text);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 6rem;
+            font-size: 4rem;
             overflow: hidden;
         }
         .cat-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-        footer { background: white; padding: 4rem 2rem; text-align: center; border-top: 3px solid var(--text); margin-top: 6rem; }
+        @media (max-width: 767px) {
+            nav { display: none; }
+            .nav-toggle { display: block; }
+        }
+
+        footer { background: white; padding: 3rem 1.5rem; text-align: center; border-top: 3px solid var(--text); margin-top: 4rem; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="/" class="logo">🐾 XR <span>Mews</span></a>
+        <div class="nav-toggle">☰</div>
         <nav>
             <a href="https://creators.spotify.com/pod/profile/xrmews" target="_blank">Listen</a>
             <a href="#episodes">Read</a>
-            <a href="#live-news">The Daily Whisker</a>
-            <a href="#team">The Team</a>
+            <a href="#live-news">Whisker</a>
+            <a href="#team">Team</a>
         </nav>
     </header>
 
@@ -234,7 +266,7 @@
             <div class="hero-content">
                 <div class="hero-label">LATEST EPISODE</div>
                 <h1>The Gravy Train Hits the Brakes</h1>
-                <p class="hero-p">Is the era of unlimited VR funding over? Meta CTO Andrew Bosworth drops a truth bomb on the industry. Mews and Pudgy break down the pivot to customer acquisition.</p>
+                <p class="hero-p">Is the era of unlimited VR funding over? Meta CTO drops a truth bomb on the industry. Mews and Pudgy break down the pivot to customer acquisition.</p>
                 <div class="btn-group">
                     <a href="https://open.spotify.com/episode/3Gb86CrHlx1fcVEWNkfKrU?si=z7vbKMycQ5yw68Ue9GgvtQ" class="btn-primary" target="_blank">🎧 Listen Now</a>
                     <a href="episode-002.html" class="btn-secondary">📖 Read Analysis</a>
@@ -279,10 +311,9 @@
             </a>
         </div>
 
-        <section id="live-news" style="margin-top: 6rem;">
-            <h2 class="whisker-title">The Daily Whisker <span style="font-family:'Inter'; font-size: 1rem; vertical-align: middle; color: #64748b;">(live xr news feed)</span></h2>
+        <section id="live-news">
+            <h2 class="whisker-title">The Daily Whisker <span style="font-family:'Inter'; font-size: 0.9rem; vertical-align: middle; color: #64748b; font-weight: normal;">(live xr news feed)</span></h2>
             <div id="news-container" class="grid">
-                <!-- Start of news items -->
                 <div class="card">
                     <div class="card-body">
                         <span class="card-tag">Industrial</span>
@@ -299,7 +330,6 @@
                         <a href="https://vedx.io" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
                     </div>
                 </div>
-                <!-- End of news items -->
             </div>
         </section>
 
