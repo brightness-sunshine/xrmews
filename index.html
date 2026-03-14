@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XR Mews | News for the New Reality</title>
-    <!-- Open Graph Tags for better sharing -->
+    <!-- Open Graph Tags -->
     <meta property="og:title" content="XR Mews - The Scientist Cat's Podcast">
     <meta property="og:description" content="High-octane XR news and analysis from Mews & Pudgy.">
     <meta property="og:image" content="https://xrmews.vercel.app/ep2_art.png">
-    <meta property="og:url" content="https://xrmews.vercel.app">
+    <meta property="og:url" content="https://xrmews.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
             --accent: #FFD700;
             --primary: #3b82f6;
             --text: #1e293b;
+            --white: #ffffff;
             --text-muted: #64748b;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
         * { box-sizing: border-box; }
@@ -40,7 +40,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: white;
+            background: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
@@ -61,8 +61,8 @@
 
         .logo span { color: var(--primary); }
 
+        /* Desktop Nav */
         nav { display: flex; align-items: center; }
-
         nav a {
             color: var(--text);
             text-decoration: none;
@@ -71,11 +71,35 @@
             font-size: 0.9rem;
             transition: color 0.2s;
         }
-
         nav a:hover { color: var(--primary); }
 
-        /* Mobile Nav Toggle */
-        .nav-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        /* Mobile Nav & Toggle */
+        .nav-toggle { 
+            display: none; 
+            font-size: 1.8rem; 
+            cursor: pointer; 
+            background: none;
+            border: none;
+            color: var(--text);
+        }
+
+        @media (max-width: 767px) {
+            .nav-toggle { display: block; }
+            nav {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                border-top: 1px solid #e2e8f0;
+                box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            }
+            nav.active { display: flex; }
+            nav a { margin: 0.75rem 0; font-size: 1.1rem; }
+        }
 
         .container {
             max-width: 1100px;
@@ -137,6 +161,8 @@
             gap: 0.75rem;
             font-size: 1rem;
             transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-secondary {
@@ -239,11 +265,6 @@
         }
         .cat-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-        @media (max-width: 767px) {
-            nav { display: none; }
-            .nav-toggle { display: block; }
-        }
-
         footer { background: white; padding: 3rem 1.5rem; text-align: center; border-top: 3px solid var(--text); margin-top: 4rem; }
     </style>
 </head>
@@ -251,8 +272,8 @@
 
     <header>
         <a href="/" class="logo">🐾 XR <span>Mews</span></a>
-        <div class="nav-toggle">☰</div>
-        <nav>
+        <button class="nav-toggle" id="menu-btn">☰</button>
+        <nav id="nav-menu">
             <a href="https://creators.spotify.com/pod/profile/xrmews" target="_blank">Listen</a>
             <a href="#episodes">Read</a>
             <a href="#live-news">Whisker</a>
@@ -291,7 +312,7 @@
         <div class="grid">
             <a href="episode-003.html" class="card">
                 <div class="card-img" style="background: #e0f2fe;">
-                    <img src="/ep2_art.png" <img src="/ep3_art.png" alt="Episode 3 Art">
+                    <img src="/ep3_art.png" alt="Episode 3 Art">
                 </div>
                 <div class="card-body">
                     <span class="card-tag">AI / Future</span>
@@ -324,30 +345,32 @@
         <section id="live-news">
             <h2 class="whisker-title">The Daily Whisker <span style="font-family:'Inter'; font-size: 0.9rem; vertical-align: middle; color: #64748b; font-weight: normal;">(live xr news feed)</span></h2>
             <div id="news-container" class="grid">
+                <!-- Start of news items -->
                 <div class="card">
                     <div class="card-body">
-                        <span class="card-tag">LEAK / HARDWARE</span>
-                        <h3 class="card-h">Snap's Glass 2 Specs Leaked?</h3>
-                        <p class="card-p">Rumors suggest a 120-degree FOV and a custom AI processor designed for instant world-mapping.</p>
-                        <a href="https://xrmews.com" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                        <span class="card-tag">HARDWARE</span>
+                        <h3 class="card-h">XREAL Project Aura: Android XR Glasses</h3>
+                        <p class="card-p">Google and XREAL are partnering on 'Project Aura,' the first dedicated Android XR glasses slated for late 2026.</p>
+                        <a href="https://www.zdnet.com/article/xreal-and-google-are-teaming-up-on-android-xr-smart-glasses/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <span class="card-tag">Industrial</span>
-                        <h3 class="card-h">John Deere Launches XR Training</h3>
-                        <p class="card-p">At CONEXPO 2026, John Deere debuted a portable VR/AR training suite using Quest 3.</p>
-                        <a href="https://www.wirtgen-group.com/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                        <span class="card-tag">GAMING</span>
+                        <h3 class="card-h">Cursed Echoes Arrives on Quest</h3>
+                        <p class="card-p">The highly anticipated psychological horror title Cursed Echoes officially launches on Meta Quest Store today.</p>
+                        <a href="https://www.uploadvr.com/cursed-echoes-quest-release-date/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <span class="card-tag">Gov</span>
-                        <h3 class="card-h">TechSummit 2026 Demos XR</h3>
-                        <p class="card-p">DC lawmakers get hands-on with AR headsets to debate new workforce legislation.</p>
-                        <a href="https://vedx.io" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                        <span class="card-tag">ENTERPRISE</span>
+                        <h3 class="card-h">Lenovo Expands VR Training</h3>
+                        <p class="card-p">Lenovo announces new enterprise-focused features for the ThinkReality VRX at the 2026 Tech Summit.</p>
+                        <a href="https://www.vrcircle.com/lenovo-thinkreality-vrx-update/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
                     </div>
                 </div>
+                <!-- End of news items -->
             </div>
         </section>
 
@@ -375,5 +398,12 @@
         <p style="font-size: 0.9rem; color: #94a3b8;">Built for the OpenClaw Ecosystem • 2026</p>
     </footer>
 
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('nav-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
