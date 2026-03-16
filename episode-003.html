@@ -3,29 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Episode 003: The World Model Revolution | XR Mews</title>
-    <link rel="stylesheet" href="style.css">
+    <title>The World Model Revolution | XR Mews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; padding: 2rem; }
-        .content { max-width: 800px; margin: 0 auto; background: white; padding: 3rem; border-radius: 2rem; border: 4px solid #1e293b; }
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; }
-        .tag { background: #3b82f6; color: white; padding: 0.2rem 0.8rem; border-radius: 5px; font-weight: bold; }
+        :root {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --accent: #FFD700;
+            --primary: #3b82f6;
+            --text: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .post-header { margin-bottom: 3rem; text-align: center; }
+        .tag { background: #fee2e2; color: #ef4444; padding: 0.3rem 0.8rem; border-radius: 99px; font-weight: 700; font-size: 0.8rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin: 1.5rem 0; line-height: 1.1; }
+        .meta { color: var(--text-muted); font-weight: 500; }
+
+        .audio-player-stub {
+            background: #e2e8f0;
+            padding: 2rem;
+            border-radius: 2rem;
+            margin-bottom: 3rem;
+            border: 3px dashed #475569;
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: #475569;
+        }
+
+        .content { font-size: 1.15rem; color: #334155; }
+        .content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; margin-top: 2.5rem; color: #000; }
+        
+        .cat-box {
+            background: #fef9c3;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 3px solid #000;
+            margin: 3rem 0;
+            position: relative;
+        }
+        .cat-box::before { content: '🐾 Mews says:'; position: absolute; top: -15px; left: 20px; background: #fbbf24; padding: 0.2rem 0.8rem; border: 2px solid #000; font-weight: 700; border-radius: 8px; font-size: 0.9rem; }
+
+        footer { text-align: center; padding: 4rem 2rem; border-top: 3px solid #1e293b; margin-top: 4rem; }
     </style>
 </head>
 <body>
-    <div class="content">
-        <span class="tag">Episode 003</span>
-        <h1>The World Model Revolution: Beyond Rendering</h1>
-        <p>In this episode, Mews and Pudgy dive into the groundbreaking shift from traditional polygon-based rendering to AI-generated "World Models."</p>
-        <h2>Key Takeaways:</h2>
-        <ul>
-            <li><strong>Pixel-by-pixel:</strong> How AI "imagines" the next frame rather than calculating geometry.</li>
-            <li><strong>Decentralized Hardware:</strong> Why World Models mean we might not need heavy GPUs inside headsets anymore.</li>
-            <li><strong>Reactor's Breakthrough:</strong> Analyzing the latest announcement from Alberto and the Reactor team.</li>
-        </ul>
-        <p>Stay tuned for the full audio dropping on Spotify soon!</p>
-        <a href="index.html">← Back to Home</a>
-    </div>
+
+    <header>
+        <a href="index.html" class="logo">🐾 XR <span>Mews</span></a>
+    </header>
+
+    <article class="container">
+        <div class="post-header">
+            <span class="tag">AI / Future</span>
+            <h1>The World Model Revolution</h1>
+            <div class="meta">March 14, 2026 • By Mews the Scientist Cat</div>
+        </div>
+
+        <div class="audio-player-stub">
+            🎙️ Episode podcast coming soon! Watch this space. 🐾
+        </div>
+
+        <div class="content">
+            <p>Meow-lo everyone! Mews here. Today, we’re looking past the lens and into the engine. For decades, XR has relied on traditional rendering—telling a GPU exactly where every triangle should be. But we are witnessing the birth of a new era: <strong>World Models</strong>.</p>
+            
+            <h3>Beyond Polygons</h3>
+            <p>What if you didn't need to render a world? What if the AI just… imagined it? This is exactly what the team at <a href="https://reactor.xyz" target="_blank">@Reactor</a> is doing. By using generative video models as real-time interactive engines, we can create environments that are chemically and physically consistent without a single line of traditional code.</p>
+
+            <div class="cat-box">
+                "The 'Holy Grail' of XR has always been photorealism. Traditional engines are hitting a hardware wall. But World Models? They leap over the wall by predicting pixels instead of calculating geometry. It's the most significant change in computer graphics since the 1980s."
+            </div>
+
+            <h3>Cloud vs Edge</h3>
+            <p>While the compute requirements are massive today, this technology effectively moves the heavy lifting to the cloud. This means your future AR glasses can be as light as a pair of Ray-Bans while showing you worlds more complex than any gaming PC could handle.</p>
+
+            <h3>The Human Component</h3>
+            <p>For creators, this means the end of the 'asset bottleneck.' You won't spend months modeling a tree; you'll spend seconds describing a forest. The barrier to entry for building 'The Metaverse' is about to vanish.</p>
+        </div>
+    </article>
+
+    <footer>
+        <p>🐾 Curated with love by Mews the Scientist Cat. • 2026</p>
+    </footer>
+
 </body>
 </html>
