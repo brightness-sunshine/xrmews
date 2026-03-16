@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sightful’s Software Coup: The Death of the Proprietary AR Laptop | XR Mews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --accent: #FFD700;
+            --primary: #3b82f6;
+            --text: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .post-header { margin-bottom: 3rem; text-align: center; }
+        .tag { background: #fee2e2; color: #ef4444; padding: 0.3rem 0.8rem; border-radius: 99px; font-weight: 700; font-size: 0.8rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin: 1.5rem 0; line-height: 1.1; }
+        .meta { color: var(--text-muted); font-weight: 500; }
+
+        .content { font-size: 1.15rem; color: #334155; }
+        .content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; margin-top: 2.5rem; color: #000; }
+        
+        .cat-box {
+            background: #fef9c3;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 3px solid #000;
+            margin: 3rem 0;
+            position: relative;
+        }
+        .cat-box::before { content: '🐾 Mews says:'; position: absolute; top: -15px; left: 20px; background: #fbbf24; padding: 0.2rem 0.8rem; border: 2px solid #000; font-weight: 700; border-radius: 8px; font-size: 0.9rem; }
+
+        footer { text-align: center; padding: 4rem 2rem; border-top: 3px solid #1e293b; margin-top: 4rem; }
+
+        .audio-player-container {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            border: 1px solid #e2e8f0;
+        }
+        audio { width: 100%; }
+        
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">🐾 XR <span>Mews</span></a>
+    </header>
+
+    <article class="container">
+        <div class="post-header">
+            <span class="tag">Industry News</span>
+            <h1>Sightful’s Software Coup: The Death of the Proprietary AR Laptop</h1>
+            <div class="meta">March 16, 2026 • By Mews the Scientist Cat</div>
+        </div>
+
+        <img src="ep3_art.png" alt="AR Laptop Visualization" class="hero-img">
+
+        <div class="audio-player-container">
+            <p style="margin-top:0; font-weight: bold;">Listen to Mews' Take:</p>
+            <audio controls>
+                <source src="mews_sightful_quote.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="content">
+            <p>The tech graveyard is littered with ambitious hardware that died because it tried to do too much. But Sightful just made a move that could save it from that fate. They’ve offically pivoted from their custom "Spacetop" hardware to a Windows-first software approach.</p>
+            
+            <h3>The Pivot to Windows</h3>
+            <p>Instead of trying to out-manufacture Apple or Meta, Sightful is now betting on the existing PC ecosystem. Their new software, designed for Xreal Air 2 Ultra glasses and NPU-heavy Windows laptops, basically says: <em>Keep your laptop, just change your screen.</em></p>
+
+            <div class="cat-box">
+                "Sightful just proved that the 'Hardware is Hard' law is unavoidable, but their pivot to Windows is a masterclass in survival. By decoupling from the silicon and focusing on the spatial OS, they’re finally letting the software breathe. The new content-sharing layer is the bridge we needed—turning a solo AR bubble into a collaborative workspace. If you're still building hardware without a software escape hatch, you're just building a very expensive paperweight."
+            </div>
+
+            <h3>Why "Content Sharing" Matters</h3>
+            <p>The latest update (V1.2.146.0) finally allows you to "mirror" windows back to your physical laptop screen. This sounds simple, but it’s huge. It solves the isolation problem of AR. You can show someone next to you what you're working on without taking off the glasses.</p>
+
+            <h3>The Mews Analysis</h3>
+            <p>This path—software that enhances hardware we already own—is where the real growth is. We're keeping a close eye on <a href="https://sightful.com" target="_blank">Sightful</a> and <a href="https://xreal.com" target="_blank">XREAL</a> as they build out this collaborative future.</p>
+        </div>
+    </article>
+
+    <footer>
+        <p>🐾 Curated with love by Mews the Scientist Cat. • 2026</p>
+    </footer>
+
+</body>
+</html>
