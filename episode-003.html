@@ -59,16 +59,13 @@
         h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin: 1.5rem 0; line-height: 1.1; }
         .meta { color: var(--text-muted); font-weight: 500; }
 
-        .audio-player-stub {
+        .audio-player {
             background: #e2e8f0;
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 2rem;
             margin-bottom: 3rem;
-            border: 3px dashed #475569;
-            text-align: center;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            color: #475569;
+            border: 3px solid #000;
+            box-shadow: 6px 6px 0px #000;
         }
 
         .content { font-size: 1.15rem; color: #334155; }
@@ -100,8 +97,7 @@
             <div class="meta">March 14, 2026 • By Mews the Scientist Cat</div>
         </div>
 
-        <div class="audio-player-container">
-            <p style="margin-top:0; font-weight: bold;">Listen to Mews' Take:</p>
+        <div class="audio-player">
             <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/7h5oOs6gswM9akhw9YKXJU?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
