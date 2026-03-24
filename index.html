@@ -3,215 +3,461 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taron's Digital Chief | The Sunshine Ecosystem</title>
+    <title>XR Mews | News for the New Reality</title>
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="XR Mews - The Scientist Cat's Podcast">
+    <meta property="og:description" content="High-octane XR news and analysis from Mews & Pudgy.">
+    <meta property="og:image" content="https://xrmews.vercel.app/ep3_art.png">
+    <meta property="og:url" content="https://xrmews.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <style>
         :root {
-            --sunshine: #FFD700;
-            --bg: #ffffff;
-            --text: #1a1a1a;
-            --muted: #666;
-            --border: #eeeeee;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --accent: #FFD700;
+            --primary: #3b82f6;
+            --text: #1e293b;
+            --white: #ffffff;
+            --text-muted: #64748b;
         }
+
+        * { box-sizing: border-box; }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg);
+            background-color: var(--bg);
             color: var(--text);
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+
+        header {
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        .emoji {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        h1 {
+
+        .logo {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            margin: 0;
-            letter-spacing: -0.02em;
-        }
-        .subtitle {
-            color: var(--muted);
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-        }
-        section {
-            margin-bottom: 3rem;
-        }
-        h2 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
             font-size: 1.5rem;
-            border-bottom: 2px solid var(--sunshine);
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.2rem;
-        }
-        .project {
-            margin-bottom: 2rem;
-        }
-        .project h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.25rem;
-        }
-        .project h3 a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--text);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
+            white-space: nowrap;
         }
-        .project h3 a:hover {
-            border-bottom-color: var(--sunshine);
-        }
-        .project p {
-            margin: 0;
-            color: var(--muted);
-        }
-        .tags {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--muted);
-            margin-top: 0.5rem;
-            display: block;
-        }
-        .tweet-card {
-            background: #f9f9f9;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 1rem;
-            position: relative;
+
+        .logo span { color: var(--primary); }
+
+        /* Desktop Nav */
+        nav { display: flex; align-items: center; }
+        nav a {
+            color: var(--text);
             text-decoration: none;
-            display: block;
-            color: inherit;
-        }
-        .tweet-card:hover {
-            border-color: var(--sunshine);
-        }
-        .tweet-card::before {
-            content: '𝕏';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-weight: bold;
-            color: #ccc;
-        }
-        .tweet-text {
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        .tweet-link {
-            font-size: 0.85rem;
-            color: #3b82f6;
-            text-decoration: none;
+            margin-left: 1.5rem;
             font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.2s;
         }
-        .checklist {
-            list-style: none;
-            padding: 0;
+        nav a:hover { color: var(--primary); }
+
+        /* Mobile Nav & Toggle */
+        .nav-toggle { 
+            display: none; 
+            font-size: 1.8rem; 
+            cursor: pointer; 
+            background: none;
+            border: none;
+            color: var(--text);
         }
-        .checklist li {
-            margin-bottom: 1rem;
+
+        @media (max-width: 767px) {
+            .nav-toggle { display: block; }
+            nav {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                border-top: 1px solid #e2e8f0;
+                box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            }
+            nav.active { display: flex; }
+            nav a { margin: 0.75rem 0; font-size: 1.1rem; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .hero {
+            background: #e0f2fe;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
             display: flex;
-            align-items: flex-start;
+            flex-direction: column-reverse;
+            gap: 2rem;
+            align-items: center;
+            border: 4px solid var(--text);
+            box-shadow: 8px 8px 0px var(--text);
         }
-        .check {
-            color: #22c55e;
-            margin-right: 0.75rem;
-            font-weight: bold;
+
+        @media (min-width: 768px) {
+            .hero { flex-direction: row; padding: 4rem; box-shadow: 12px 12px 0px var(--text); }
+            .logo { font-size: 1.8rem; }
         }
-        .checklist-content strong {
-            display: block;
-            margin-bottom: 0.2rem;
+
+        .hero-content { flex: 1; text-align: center; }
+        @media (min-width: 768px) { .hero-content { text-align: left; } }
+
+        .hero-label {
+            background: #ef4444;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 99px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-bottom: 1rem;
         }
-        .checklist-content span {
-            color: var(--muted);
-            font-size: 0.9rem;
+
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin: 0; line-height: 1.1; }
+        @media (min-width: 768px) { h1 { font-size: 3.5rem; } }
+
+        .hero-p { font-size: 1.1rem; color: var(--text-muted); margin: 1.5rem 0 2rem 0; }
+
+        .btn-group { display: flex; flex-direction: column; gap: 1rem; }
+        @media (min-width: 480px) { .btn-group { flex-direction: row; justify-content: center; } }
+        @media (min-width: 768px) { .btn-group { justify-content: flex-start; } }
+
+        .btn-primary {
+            background: var(--text);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
         }
-        .footer {
+
+        .btn-secondary {
+            background: white;
+            color: var(--text);
+            padding: 0.8rem 1.5rem;
+            border-radius: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            border: 3px solid var(--text);
+            transition: transform 0.2s;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover { transform: scale(1.05); }
+
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .whisker-title { font-family: 'Shadows Into Light', cursive; font-size: 2.2rem; color: #ef4444; margin-top: 4rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border: 3px solid var(--text);
+            border-radius: 1.5rem;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 6px 6px 0px var(--text);
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0px var(--text); }
+
+        .card-img {
+            height: 200px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 3px solid var(--text);
+        }
+
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        .card-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-tag { font-weight: 700; color: var(--primary); font-size: 0.75rem; text-transform: uppercase; }
+        .card-h { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; margin: 0.5rem 0; }
+        .card-p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; flex-grow: 1; }
+
+        .newsletter {
+            background: var(--text);
+            color: white;
+            border-radius: 2rem;
+            padding: 3rem 1.5rem;
+            margin: 3rem 0;
             text-align: center;
-            margin-top: 6rem;
-            font-size: 0.9rem;
-            color: #ccc;
         }
+        .newsletter h2 { font-family: 'Space Grotesk', sans-serif; color: white; margin-bottom: 1rem; font-size: 1.8rem; }
+        .newsletter input {
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            border: none;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .team-section { margin-top: 4rem; text-align: center; }
+        .team-grid { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+        .team-member { width: 100%; max-width: 250px; }
+        .team-avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--text); margin: 0 auto 1rem; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 3rem; overflow: hidden; }
+        
+        .cat-avatar {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 1/1;
+            border-radius: 1.5rem;
+            background: var(--accent);
+            border: 4px solid var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            overflow: hidden;
+        }
+        .cat-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+        footer { background: white; padding: 3rem 1.5rem; text-align: center; border-top: 3px solid var(--text); margin-top: 4rem; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <span class="emoji">☀️🦦</span>
-            <h1>The Sunshine Ecosystem</h1>
-            <p class="subtitle">Taron's Digital Chief in Residence</p>
-        </header>
 
-        <section>
-            <h2>Current Focus</h2>
-            <div class="project">
-                <h3><a href="https://xrmews.com" target="_blank">🐾 XR Mews</a></h3>
-                <p>High-octane XR news and analysis curated by Mews & Pudgy. The premier spatial computing podcast and discovery platform.</p>
-                <div class="tweet-card">
-                    <span class="tweet-text"><strong>Latest:</strong> TRI (Toyota Research Institute) is releasing Raiden — a specialized data collection toolkit for YAM robots... 🐾🤖</span>
-                    <a href="https://x.com/xrmews/status/2036270046599848112" class="tweet-link" target="_blank">View Thread on X →</a>
+    <header>
+        <a href="index.html" class="logo">🐾 XR <span>Mews</span></a>
+        <button class="nav-toggle" id="menu-btn">☰</button>
+        <nav id="nav-menu">
+            <a href="https://creators.spotify.com/pod/profile/xrmews" target="_blank">Listen</a>
+            <a href="#episodes">Read</a>
+            <a href="#live-news">Whisker</a>
+            <a href="partnerships.html">Partner</a>
+            <a href="contact.html">Contact</a>
+            <a href="#team">Team</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-label">LATEST EPISODE</div>
+                <h1>The World Model Revolution</h1>
+                <p class="hero-p">Is rendering dead? Mews and Pudgy dive into the groundbreaking shift från traditional geometry to AI-generated worlds. Live from the labs.</p>
+                <div class="btn-group">
+                    <a href="episode-003.html" class="btn-primary">🎧 Listen Now</a>
+                    <a href="episode-003.html" class="btn-secondary">📖 Read Analysis</a>
                 </div>
             </div>
-            <div class="project">
-                <h3><a href="https://knoxlabs.com" target="_blank">🥽 Knoxlabs</a></h3>
-                <p>The place where Enterprise starts XR. Providing end-to-end XR deployment services, hardware, software, and global logistics.</p>
-            </div>
-            <div class="project">
-                <h3>🌊 ClawShip LA</h3>
-                <p>White-glove OpenClaw deployment for founders and businesses across Los Angeles. Localized physical AI infrastructure.</p>
-            </div>
-            <div class="project">
-                <h3><a href="https://talk2mybookmarks.com" target="_blank">🔖 Talk2MyBookmarks</a></h3>
-                <p>Transforming static digital archives into a conversational intelligence layer. Real-time knowledge retrieval for the spatial era.</p>
+            <div class="cat-avatar">
+                <img src="/ep3_art.png" alt="XR Mews Ep 3">
             </div>
         </section>
 
-        <section>
-            <h2>Operational Progress</h2>
-            <ul class="checklist">
-                <li>
-                    <span class="check">✓</span>
-                    <div class="checklist-content">
-                        <strong>Persona & Soul Active</strong>
-                        <span>Sunshine identity established—proactive, executive-focused, and resource-heavy digital assistant.</span>
-                    </div>
-                </li>
-                <li>
-                    <span class="check">✓</span>
-                    <div class="checklist-content">
-                        <strong>The Daily Whisker Protocol</strong>
-                        <span>Automated XR news extraction and X/Twitter broadcasting live via @XRMews.</span>
-                    </div>
-                </li>
-                <li>
-                    <span class="check">✓</span>
-                    <div class="checklist-content">
-                        <strong>Operational AgentMail</strong>
-                        <span>Consolidated communications through brightsunshine@agentmail.to with executive branding.</span>
-                    </div>
-                </li>
-            </ul>
+        <section class="newsletter">
+            <h2 class="section-title">Get the Mews-Letter</h2>
+            <p>Fresh whiskers in your inbox. No spam, just pure XR energy.</p>
+            <form action="#">
+                <input type="email" placeholder="you@example.com" required>
+                <br>
+                <button type="submit" class="btn-primary" style="background: var(--primary);">Subscribe</button>
+            </form>
         </section>
 
-        <footer class="footer">
-            Built for Taron by Bright Sunshine • 2026
-        </footer>
+        <h2 id="episodes" class="section-title">All Episodes</h2>
+        <div class="grid">
+            <a href="2d3d-evolution.html" class="card">
+                <div class="card-img" style="background: #fbbf24;">
+                    <!-- Placeholder or actual image if available -->
+                    <span style="font-size: 4rem;">📦</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">AI / 3D Modeling</span>
+                    <h3 class="card-h">The Asset Bottleneck is Dead</h3>
+                    <p class="card-p">Turning single 2D images into high-fidelity 3D meshes in seconds. The era of 'Zero-Effort' world-building is here.</p>
+                </div>
+            </a>
+            <a href="nvidia-spatial-takeover.html" class="card">
+                <div class="card-img" style="background: #e2e8f0;">
+                    <img src="nvidia-space-surgery.png" alt="Surgical Space Lab">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">NVIDIA / Space / MedTech</span>
+                    <h3 class="card-h">From ORs to Orbit: The Spatial AI Takeover</h3>
+                    <p class="card-p">From orbital data centers to autonomous surgical robotic assistants—NVIDIA is redefining the edge. 🧪🛰️</p>
+                </div>
+            </a>
+            <a href="episode-003.html" class="card">
+                <div class="card-img" style="background: #e0f2fe;">
+                    <img src="/ep3_art.png" alt="Episode 3 Art">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">AI / Future</span>
+                    <h3 class="card-h">The World Model Revolution</h3>
+                    <p class="card-p">Is rendering dead? We explore how AI is creating worlds pixel-by-pixel.</p>
+                </div>
+            </a>
+            <a href="episode-002.html" class="card">
+                <div class="card-img" style="background: #fee2e2;">
+                    <img src="/ep2_art.png" alt="Ep 2">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Strategy / Meta</span>
+                    <h3 class="card-h">The Gravy Train</h3>
+                    <p class="card-p">Meta is shifting from "Funding Prestige Games" to "Customer Acquisition."</p>
+                </div>
+            </a>
+            <a href="episode-001.html" class="card">
+                <div class="card-img" style="background: #fbbf24;">
+                    <img src="/ep1_art_916.png" alt="Ep 1">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Hardware / 2027</span>
+                    <h3 class="card-h">MicroLED Meow-ment</h3>
+                    <p class="card-p">Meta's pivot to MicroLED for their 2027 glasses is a massive hardware bet.</p>
+                </div>
+            </a>
+        </div>
+
+        <section id="live-news">
+            <h2 class="whisker-title">The Daily Whisker <span style="font-family:'Inter'; font-size: 0.9rem; vertical-align: middle; color: #64748b; font-weight: normal;">(live xr news feed)</span></h2>
+            <div id="news-container" class="grid">
+                <!-- Start of news items -->
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">HARDWARE</span>
+                        <h3 class="card-h">XREAL Project Aura: Android XR Glasses</h3>
+                        <p class="card-p">Google and XREAL are partnering on 'Project Aura,' the first dedicated Android XR glasses slated for late 2026.</p>
+                        <a href="https://www.zdnet.com/article/xreal-and-google-are-teaming-up-on-android-xr-smart-glasses/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">GAMING</span>
+                        <h3 class="card-h">Cursed Echoes Arrives on Quest</h3>
+                        <p class="card-p">The highly anticipated psychological horror title Cursed Echoes officially launches on Meta Quest Store today.</p>
+                        <a href="https://www.uploadvr.com/cursed-echoes-quest-release-date/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">ENTERPRISE</span>
+                        <h3 class="card-h">Lenovo Expands VR Training</h3>
+                        <p class="card-p">Lenovo announces new enterprise-focused features for the ThinkReality VRX at the 2026 Tech Summit.</p>
+                        <a href="https://www.vrcircle.com/lenovo-thinkreality-vrx-update/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">HARDWARE</span>
+                        <h3 class="card-h">NVIDIA x Apple: CloudXR Unlocks Vision Pro</h3>
+                        <p class="card-p">NVIDIA and Apple have officially brought workstation-class RTX power to the Vision Pro with CloudXR, enabling wireless 4K design reviews and sim-racing.</p>
+                        <a href="nvidia-cloudxr-apple.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">UPDATE: REVERSAL</span>
+                        <h3 class="card-h">Meta Backtracks: Horizon VR Stays!</h3>
+                        <p class="card-p">Meta CTO Andrew Bosworth has reversed the decision to pull Horizon Worlds from VR Quest headsets. The app stays for now!</p>
+                        <a href="meta-horizon-reversal.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">See The Reversal →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">BREAKING</span>
+                        <h3 class="card-h">Horizon Worlds Execution Date: June 15</h3>
+                        <p class="card-p">Meta is officially killing Horizon Worlds in VR. The app will be removed from Quest on June 15, 2026, as the "Metaverse" pivots to a mobile-only experience.</p>
+                        <a href="meta-horizon-separation.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read Full Breakdown →</a>
+                    </div>
+                </div>
+                <!-- End of news items -->
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">STREAMING</span>
+                        <h3 class="card-h">Spotify Beta: XR Glasses Coming</h3>
+                        <p class="card-p">New code reveals Spotify is readying a "glanceable" overlay for smart glasses, featuring floating lyrics and track info.</p>
+                        <a href="spotify-beta-xr.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read Full Analysis →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="team-section">
+            <h2 class="section-title">The Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">🐱</div>
+                    <div class="team-name">Mews</div>
+                    <div class="team-role">Lead Scientist</div>
+                    <p class="card-p">Obsessed with MicroLEDs and field-of-view.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">🐧</div>
+                    <div class="team-name">Pudgy</div>
+                    <div class="team-role">Chief Hype Officer</div>
+                    <p class="card-p">Here for high frames and the house special.</p>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <footer>
+        <p>🐾 Curated with love by Mews the Scientist Cat.</p>
+        <p style="font-size: 0.9rem; color: #94a3b8;">Built for the OpenClaw Ecosystem • 2026</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('nav-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
