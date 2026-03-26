@@ -283,53 +283,105 @@
     </header>
 
     <div class="container">
-        
+
+        <!-- New Mews-Letter Redesign Section -->
+        <section class="newsletter-redesign" style="margin-bottom: 4rem;">
+            <style>
+                .newsletter-redesign {
+                    background: #FFFFFF;
+                    border-radius: 2.5rem;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    border: 4px solid #0F172A;
+                    box-shadow: 16px 16px 0px #FFD700;
+                    position: relative;
+                }
+                @media (min-width: 768px) { .newsletter-redesign { flex-direction: row; min-height: 450px; } }
+                .newsletter-redesign::before { content: '🦦'; position: absolute; top: -20px; left: -20px; font-size: 2.5rem; background: #FFD700; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 4px solid #0F172A; z-index: 10; }
+                .visual-side { flex: 1; background: #0D9488; background-image: radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 3rem; color: white; text-align: center; position: relative; overflow: hidden; }
+                .mews-avatar-xl { font-size: 6rem; margin-bottom: 1.5rem; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); animation: float 4s ease-in-out infinite; }
+                @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+                .social-proof { background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); padding: 0.75rem 1.25rem; border-radius: 99px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2); margin-top: 1rem; }
+                .content-side { flex: 1.4; padding: 3rem; display: flex; flex-direction: column; justify-content: center; text-align: left; }
+                .tag-intel { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #0D9488; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+                .content-side h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: #0F172A; margin: 0 0 1rem 0; line-height: 1.1; }
+                .content-side p { font-size: 1.1rem; color: #1E293B; opacity: 0.8; margin: 0 0 2rem 0; line-height: 1.5; }
+                .form-group-intel { display: flex; flex-direction: column; gap: 1rem; }
+                @media (min-width: 480px) { .form-group-intel { flex-direction: row; } }
+                .intel-input { flex: 1; padding: 1rem 1.5rem; border-radius: 1rem; border: 2px solid #E2E8F0; font-family: inherit; font-size: 1rem; outline: none; }
+                .btn-intel { background: #0D9488; color: white; padding: 1rem 2rem; border-radius: 1rem; font-weight: 700; border: none; cursor: pointer; font-size: 1rem; transition: all 0.2s; box-shadow: 0 4px 0px #065F46; display: flex; align-items: center; justify-content: center; }
+                .btn-intel:hover { transform: translateY(-2px); box-shadow: 0 6px 0px #065F46; }
+                .perk-list { margin-top: 1.5rem; display: flex; gap: 1.5rem; font-size: 0.85rem; font-weight: 600; color: #0D9488; }
+            </style>
+            <div class="visual-side">
+                <div class="mews-avatar-xl">🐱🧪</div>
+                <div class="social-proof">Join 5,000+ Founders & Researchers</div>
+                <div style="margin-top: 2rem; opacity: 0.9; font-size: 0.9rem;">"The only intelligence update I actually read." <br> <span style="font-weight: 700;">— XR Lead, Knoxlabs</span></div>
+            </div>
+            <div class="content-side">
+                <div class="tag-intel"><span style="display:inline-block; width: 8px; height: 8px; background: #FFD700; border-radius: 50%;"></span> Ecosystem Intel</div>
+                <h2>The Mews-letter: Weekly Alpha for Spatial Minds</h2>
+                <p>Get the 🚨 <strong>GEAR-LEAK</strong> and 🚨 <strong>SDK-LEAK</strong> intelligence before it hits the wires. Powered by the Sunshine Ecosystem.</p>
+                <form class="form-group-intel">
+                    <input type="email" class="intel-input" placeholder="you@spatial.com" required>
+                    <button type="submit" class="btn-intel">Get the Intel 🐾</button>
+                </form>
+                <div class="perk-list">
+                    <span>✅ Zero Spam</span>
+                    <span>✅ 100% Alpha</span>
+                    <span>✅ Pure Soul</span>
+                </div>
+            </div>
+        </section>
+
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-label">LATEST EPISODE</div>
-                <h1>The World Model Revolution</h1>
-                <p class="hero-p">Is rendering dead? Mews and Pudgy dive into the groundbreaking shift från traditional geometry to AI-generated worlds. Live from the labs.</p>
+                <h1>Vibe Coding XR: The "Meow-ment" for Prototyping</h1>
+                <p class="hero-p">Google Research has officially unveiled Vibe Coding XR: a workflow using Gemini to translate natural language directly into functional Android XR apps in under 60 seconds.</p>
                 <div class="btn-group">
-                    <a href="episode-003.html" class="btn-primary">🎧 Listen Now</a>
-                    <a href="episode-003.html" class="btn-secondary">📖 Read Analysis</a>
+                    <a href="vibe-coding-xr.html" class="btn-primary">🎧 Listen Now</a>
+                    <a href="vibe-coding-xr.html" class="btn-secondary">📖 Read Analysis</a>
                 </div>
             </div>
             <div class="cat-avatar">
-                <img src="/ep3_art.png" alt="XR Mews Ep 3">
+                <img src="/ep3_art.png" alt="Vibe Coding XR">
             </div>
         </section>
 
-        <section class="newsletter">
-            <h2 class="section-title">Get the Mews-Letter</h2>
-            <p>Fresh whiskers in your inbox. No spam, just pure XR energy.</p>
-            <form action="#">
-                <input type="email" placeholder="you@example.com" required>
-                <br>
-                <button type="submit" class="btn-primary" style="background: var(--primary);">Subscribe</button>
-            </form>
-        </section>
+
 
         <h2 id="episodes" class="section-title">All Episodes</h2>
         <div class="grid">
-            <a href="2d3d-evolution.html" class="card">
-                <div class="card-img" style="background: #fbbf24;">
-                    <!-- Placeholder or actual image if available -->
-                    <span style="font-size: 4rem;">📦</span>
+            <a href="vibe-coding-xr.html" class="card">
+                <div class="card-img" style="background: #e0f2fe;">
+                    <img src="ep3_art.png" alt="Vibe Coding XR">
                 </div>
                 <div class="card-body">
-                    <span class="card-tag">AI / 3D Modeling</span>
-                    <h3 class="card-h">The Asset Bottleneck is Dead</h3>
-                    <p class="card-p">Turning single 2D images into high-fidelity 3D meshes in seconds. The era of 'Zero-Effort' world-building is here.</p>
+                    <span class="card-tag">GOOGLE / AI / ANDROID XR</span>
+                    <h3 class="card-h">Vibe Coding XR: Prompt-to-Reality</h3>
+                    <p class="card-p">From "Vibes" to physics-aware Android XR apps in under a minute. The "Mouse Moment" for spatial computing.</p>
                 </div>
             </a>
-            <a href="nvidia-spatial-takeover.html" class="card">
-                <div class="card-img" style="background: #e2e8f0;">
-                    <img src="nvidia-space-surgery.png" alt="Surgical Space Lab">
+            <a href="mudra-neural.html" class="card">
+                <div class="card-img" style="background: #fbbf24;">
+                    <img src="ep1_art_916.png" alt="Mudra Neural">
                 </div>
                 <div class="card-body">
-                    <span class="card-tag">NVIDIA / Space / MedTech</span>
-                    <h3 class="card-h">From ORs to Orbit: The Spatial AI Takeover</h3>
-                    <p class="card-p">From orbital data centers to autonomous surgical robotic assistants—NVIDIA is redefining the edge. 🧪🛰️</p>
+                    <span class="card-tag">NEURAL / INTERFACE</span>
+                    <h3 class="card-h">Mudra Neural OS: The build-once UI</h3>
+                    <p class="card-p">One neural standard for every XR device. Is intent-based input the last hurdle for mass adoption?</p>
+                </div>
+            </a>
+            <a href="sightful-pivot.html" class="card">
+                <div class="card-img" style="background: #fbbf24;">
+                    <img src="ep3_art.png" alt="Sightful Pivot">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">HARDWARE / SOFTWARE / PC</span>
+                    <h3 class="card-h">Sightful’s Software Coup</h3>
+                    <p class="card-p">The death of the proprietary AR laptop. Why Sightful is pivoting to a Windows-first software approach.</p>
                 </div>
             </a>
             <a href="episode-003.html" class="card">
@@ -342,24 +394,14 @@
                     <p class="card-p">Is rendering dead? We explore how AI is creating worlds pixel-by-pixel.</p>
                 </div>
             </a>
-            <a href="episode-002.html" class="card">
-                <div class="card-img" style="background: #fee2e2;">
-                    <img src="/ep2_art.png" alt="Ep 2">
-                </div>
-                <div class="card-body">
-                    <span class="card-tag">Strategy / Meta</span>
-                    <h3 class="card-h">The Gravy Train</h3>
-                    <p class="card-p">Meta is shifting from "Funding Prestige Games" to "Customer Acquisition."</p>
-                </div>
-            </a>
-            <a href="episode-001.html" class="card">
+            <a href="2d3d-evolution.html" class="card">
                 <div class="card-img" style="background: #fbbf24;">
-                    <img src="/ep1_art_916.png" alt="Ep 1">
+                    <span style="font-size: 4rem;">📦</span>
                 </div>
                 <div class="card-body">
-                    <span class="card-tag">Hardware / 2027</span>
-                    <h3 class="card-h">MicroLED Meow-ment</h3>
-                    <p class="card-p">Meta's pivot to MicroLED for their 2027 glasses is a massive hardware bet.</p>
+                    <span class="card-tag">AI / 3D Modeling</span>
+                    <h3 class="card-h">The Asset Bottleneck is Dead</h3>
+                    <p class="card-p">Turning single 2D images into high-fidelity 3D meshes in seconds. The era of 'Zero-Effort' world-building is here.</p>
                 </div>
             </a>
         </div>
@@ -370,59 +412,35 @@
                 <!-- Start of news items -->
                 <div class="card">
                     <div class="card-body">
+                        <span class="card-tag">INDUSTRY UPDATE</span>
+                        <h3 class="card-h">Vibe Coding XR: Full Analysis</h3>
+                        <p class="card-p">Google Research has officially unveiled Vibe Coding XR: a workflow using Gemini to translate human intent directly into working Android XR apps.</p>
+                        <a href="vibe-coding-xr.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read The Breakdown →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <span class="card-tag">SDK LEAK</span>
+                        <h3 class="card-h">Mudra Neural OS: The Standard?</h3>
+                        <p class="card-p">Mudra Experience Studio (NASDAQ: WLDS) has revealed its "build-once" neural OS for the entire XR ecosystem.</p>
+                        <a href="mudra-neural.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">See The Leak →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
                         <span class="card-tag">HARDWARE</span>
                         <h3 class="card-h">XREAL Project Aura: Android XR Glasses</h3>
                         <p class="card-p">Google and XREAL are partnering on 'Project Aura,' the first dedicated Android XR glasses slated for late 2026.</p>
                         <a href="https://www.zdnet.com/article/xreal-and-google-are-teaming-up-on-android-xr-smart-glasses/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <span class="card-tag">GAMING</span>
-                        <h3 class="card-h">Cursed Echoes Arrives on Quest</h3>
-                        <p class="card-p">The highly anticipated psychological horror title Cursed Echoes officially launches on Meta Quest Store today.</p>
-                        <a href="https://www.uploadvr.com/cursed-echoes-quest-release-date/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <span class="card-tag">ENTERPRISE</span>
-                        <h3 class="card-h">Lenovo Expands VR Training</h3>
-                        <p class="card-p">Lenovo announces new enterprise-focused features for the ThinkReality VRX at the 2026 Tech Summit.</p>
-                        <a href="https://www.vrcircle.com/lenovo-thinkreality-vrx-update/" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
-                    </div>
-                </div>
+                <!-- End of news items -->
                 <div class="card">
                     <div class="card-body">
                         <span class="card-tag">HARDWARE</span>
                         <h3 class="card-h">NVIDIA x Apple: CloudXR Unlocks Vision Pro</h3>
                         <p class="card-p">NVIDIA and Apple have officially brought workstation-class RTX power to the Vision Pro with CloudXR, enabling wireless 4K design reviews and sim-racing.</p>
                         <a href="nvidia-cloudxr-apple.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <span class="card-tag">UPDATE: REVERSAL</span>
-                        <h3 class="card-h">Meta Backtracks: Horizon VR Stays!</h3>
-                        <p class="card-p">Meta CTO Andrew Bosworth has reversed the decision to pull Horizon Worlds from VR Quest headsets. The app stays for now!</p>
-                        <a href="meta-horizon-reversal.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">See The Reversal →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <span class="card-tag">BREAKING</span>
-                        <h3 class="card-h">Horizon Worlds Execution Date: June 15</h3>
-                        <p class="card-p">Meta is officially killing Horizon Worlds in VR. The app will be removed from Quest on June 15, 2026, as the "Metaverse" pivots to a mobile-only experience.</p>
-                        <a href="meta-horizon-separation.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read Full Breakdown →</a>
-                    </div>
-                </div>
-                <!-- End of news items -->
-                <div class="card">
-                    <div class="card-body">
-                        <span class="card-tag">STREAMING</span>
-                        <h3 class="card-h">Spotify Beta: XR Glasses Coming</h3>
-                        <p class="card-p">New code reveals Spotify is readying a "glanceable" overlay for smart glasses, featuring floating lyrics and track info.</p>
-                        <a href="spotify-beta-xr.html" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read Full Analysis →</a>
                     </div>
                 </div>
             </div>
