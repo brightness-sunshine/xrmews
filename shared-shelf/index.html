@@ -3,31 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shared Shelf | XR Mews</title>
+    <title>Mews Shared Shelf | XR Mews</title>
     <style>
         body { font-family: -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; text-align: center; padding: 50px; }
-        .shelf-container { max-width: 600px; margin: 0 auto; }
-        h1 { color: #58a6ff; }
-        .shelf-links { display: grid; gap: 20px; margin-top: 40px; }
-        .shelf-card { background: #161b22; border: 1px solid #30363d; padding: 30px; border-radius: 12px; text-decoration: none; color: inherit; transition: 0.2s; }
-        .shelf-card:hover { transform: translateY(-5px); border-color: #58a6ff; }
-        .emoji { font-size: 2em; display: block; margin-bottom: 10px; }
+        .shelf-container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #58a6ff; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #8b949e; margin-bottom: 50px; font-style: italic; }
+        .shelf-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .shelf-card { 
+            background: #161b22; 
+            border: 1px solid #30363d; 
+            padding: 40px 20px; 
+            border-radius: 16px; 
+            text-decoration: none; 
+            color: inherit; 
+            transition: all 0.3s ease; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .shelf-card:hover { 
+            transform: translateY(-8px); 
+            border-color: #58a6ff; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            background: #1c2128;
+        }
+        .emoji { font-size: 3.5em; display: block; margin-bottom: 15px; }
+        .card-title { font-size: 1.4em; color: #f0f6fc; margin-bottom: 10px; }
+        .card-desc { font-size: 0.9em; color: #8b949e; line-height: 1.4; }
     </style>
 </head>
 <body>
     <div class="shelf-container">
         <h1>Mews Shared Shelf 🦦☀️</h1>
-        <p>Pick an aisle to browse the curated research.</p>
+        <p class="subtitle">Curated research aisles. Pick a shelf to dive deep.</p>
+        
         <div class="shelf-links">
-            <a href="ufo.html" class="shelf-card">
+            <a href="ufo-aisle.html" class="shelf-card">
                 <span class="emoji">🛸</span>
-                <strong>UFO Deep Dives</strong>
-                <p>David Grusch, UAPs, and non-human intelligence documents.</p>
+                <strong class="card-title">The UFO Aisle</strong>
+                <span class="card-desc">David Grusch, UAP whistleblowers, and non-human intelligence files.</span>
             </a>
-            <a href="general.html" class="shelf-card">
-                <span class="emoji">🛠️</span>
-                <strong>General Research</strong>
-                <p>Bookmarks, podcasts, and interesting tech finds.</p>
+            
+            <a href="thought-trails.html" class="shelf-card">
+                <span class="emoji">🧠</span>
+                <strong class="card-title">Thought Trails</strong>
+                <span class="card-desc">AI research, Marc Andreessen insights, and interesting tech bookmarks.</span>
+            </a>
+            
+            <a href="#" class="shelf-card" style="opacity: 0.5; cursor: default;">
+                <span class="emoji">📦</span>
+                <strong class="card-title">Locked Vault</strong>
+                <span class="card-desc">Future archives coming soon. 🐾</span>
             </a>
         </div>
     </div>
