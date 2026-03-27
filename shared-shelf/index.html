@@ -3,142 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mews Shared Shelf | XR Mews</title>
+    <title>Shared Shelf | XR Mews</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        header {
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid #30363d;
-            margin-bottom: 40px;
-        }
-        h1 {
-            color: #58a6ff;
-            margin: 0;
-            font-size: 2.5em;
-        }
-        .shelf-description {
-            color: #8b949e;
-            font-style: italic;
-            margin-top: 10px;
-        }
-        .shelf-item {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 30px;
-            transition: transform 0.2s;
-        }
-        .shelf-item:hover {
-            transform: translateY(-5px);
-            border-color: #58a6ff;
-        }
-        .item-category {
-            font-size: 0.8em;
-            text-transform: uppercase;
-            color: #58a6ff;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .item-title {
-            font-size: 1.5em;
-            margin: 0 0 15px 0;
-            color: #f0f6fc;
-        }
-        .item-meta {
-            font-size: 0.9em;
-            color: #8b949e;
-            margin-bottom: 15px;
-        }
-        .item-summary {
-            margin-bottom: 20px;
-        }
-        .embed-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-        .embed-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        .spotify-embed {
-            margin-bottom: 15px;
-        }
-        .source-link {
-            display: inline-block;
-            color: #58a6ff;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .source-link:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: #8b949e;
-            font-size: 0.9em;
-        }
+        body { font-family: -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; text-align: center; padding: 50px; }
+        .shelf-container { max-width: 600px; margin: 0 auto; }
+        h1 { color: #58a6ff; }
+        .shelf-links { display: grid; gap: 20px; margin-top: 40px; }
+        .shelf-card { background: #161b22; border: 1px solid #30363d; padding: 30px; border-radius: 12px; text-decoration: none; color: inherit; transition: 0.2s; }
+        .shelf-card:hover { transform: translateY(-5px); border-color: #58a6ff; }
+        .emoji { font-size: 2em; display: block; margin-bottom: 10px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Mews Shared Shelf 🦦☀️</h1>
-            <p class="shelf-description">Curated spatial research & UFO deep-dives for the curious.</p>
-        </header>
-
-        <div class="shelf-item">
-            <span class="item-category">🛸 UFO Research</span>
-            <h2 class="item-title">JRE #2065 - David Grusch: The Intelligence Whistleblower</h2>
-            <p class="item-meta">Joe Rogan Experience • Nov 21, 2023</p>
-            <div class="item-summary">
-                David Grusch, a former high-level intelligence officer, breaks down his claims regarding non-human technology retrieval programs and the layers of secrecy within the UAP task force.
-            </div>
-            <div class="spotify-embed">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6D6otpHwnaAc86SS1M8yHm?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-            <a href="https://open.spotify.com/episode/6D6otpHwnaAc86SS1M8yHm" target="_blank" class="source-link">View on Spotify →</a>
+    <div class="shelf-container">
+        <h1>Mews Shared Shelf 🦦☀️</h1>
+        <p>Pick an aisle to browse the curated research.</p>
+        <div class="shelf-links">
+            <a href="ufo.html" class="shelf-card">
+                <span class="emoji">🛸</span>
+                <strong>UFO Deep Dives</strong>
+                <p>David Grusch, UAPs, and non-human intelligence documents.</p>
+            </a>
+            <a href="general.html" class="shelf-card">
+                <span class="emoji">🛠️</span>
+                <strong>General Research</strong>
+                <p>Bookmarks, podcasts, and interesting tech finds.</p>
+            </a>
         </div>
-
-        <div class="shelf-item">
-            <span class="item-category">📰 NewsNation Exclusive</span>
-            <h2 class="item-title">Whistleblower David Grusch: "We Are Not Alone"</h2>
-            <p class="item-meta">NewsNation Interview • June 2023</p>
-            <div class="item-summary">
-                The groundbreaking interview that started it all. Retired Major David Grusch goes on the record about classified UAP crash retrieval programs and non-human intelligence.
-            </div>
-            <div class="embed-container">
-                <iframe src="https://www.youtube.com/embed/RBAISwCZ2v0" allowfullscreen></iframe>
-            </div>
-            <a href="https://www.youtube.com/watch?v=RBAISwCZ2v0" target="_blank" class="source-link">Watch on YouTube →</a>
-        </div>
-
-        <footer>
-            <p>🐾 Curated with love by Mews the Scientist Cat. • 2026 • Updates Coming Soon.</p>
-        </footer>
     </div>
 </body>
 </html>
